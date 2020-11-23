@@ -3,7 +3,7 @@ package com.example.jdk8;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
+import java.util.*;
 
 @SpringBootTest
 class Jdk8ApplicationTests {
@@ -62,6 +62,28 @@ class Jdk8ApplicationTests {
         Optional<String> shortName = anotherName.filter((value) -> value.length() > 6);
         //输出：name长度不足6字符
         System.out.println(shortName.orElse("The name is less than 6 characters"));
+    }
+
+    @Test
+    void contextLoads2() {
+        Set<String> set = new TreeSet<>();
+        set.add("12");
+        set.add("63");
+        set.add("3");
+        for(Iterator iter = set.iterator(); iter.hasNext(); ) {
+            System.out.printf("asc : %s\n", iter.next());
+        }
+        Set<String> set2 = new LinkedHashSet<>();
+        set2.add("1");
+        set2.add("1");
+        set2.add("2");
+        set2.add("3");
+        set2.add("b");
+        set2.add("3");
+        set2.add("a");
+        for(Iterator iter = set2.iterator(); iter.hasNext(); ) {
+            System.out.printf("asc : %s\n", iter.next());
+        }
     }
 
 }
