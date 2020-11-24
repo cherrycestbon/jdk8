@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 public class NumUtil {
 
 	/**
+	 * 数值格式化
 	 * @Description 保留指定位数的小数(少位补零)
 	 * @author fengshuonan
 	 */
@@ -22,29 +23,6 @@ public class NumUtil {
 		} else {
 			return new BigDecimal(value).setScale(n, RoundingMode.HALF_UP).toString();
 		}
-	}
-
-	/**
-	 * @Description 获取任意小数点位的百分比表示(少位不补零)
-	 * @author fengshuonan
-	 */
-	public static String percent(double value, int n) {
-		NumberFormat percent = NumberFormat.getPercentInstance();
-		percent.setGroupingUsed(false);//不加逗号(默认是有逗号的)
-		percent.setMaximumFractionDigits(n);//最大小数位数n，不够n位也不补零
-		return percent.format(value);
-	}
-
-	/**
-	 * 设置百分数精确度2即保留两位小数(少位补零)
-	 * @param percent
-	 * @return
-	 */
-	public static String percentZero(Double percent,int scale) {
-		NumberFormat nt = NumberFormat.getPercentInstance();
-		nt.setGroupingUsed(false);//不加逗号(默认是有逗号的)
-		nt.setMinimumFractionDigits(scale);//最小数位数n,不够则补零
-		return nt.format(percent);
 	}
 
 	/**
@@ -75,6 +53,36 @@ public class NumUtil {
 		return df.format(value);
 	}
 
+	/**
+	 * 百分比格式化
+	 * @Description 获取任意小数点位的百分比表示(少位不补零)
+	 * @author fengshuonan
+	 */
+	public static String percent(double value, int n) {
+		NumberFormat percent = NumberFormat.getPercentInstance();
+		percent.setGroupingUsed(false);//不加逗号(默认是有逗号的)
+		percent.setMaximumFractionDigits(n);//最大小数位数n，不够n位也不补零
+		return percent.format(value);
+	}
+
+	/**
+	 * 百分比格式化
+	 * 设置百分数精确度2即保留两位小数(少位补零)
+	 * @param percent
+	 * @return
+	 */
+	public static String percentZero(Double percent,int scale) {
+		NumberFormat nt = NumberFormat.getPercentInstance();
+		nt.setGroupingUsed(false);//不加逗号(默认是有逗号的)
+		nt.setMinimumFractionDigits(scale);//最小数位数n,不够则补零
+		return nt.format(percent);
+	}
+
+	/**
+	 * 货币格式化
+	 * @param value
+	 * @return
+	 */
 	public static String currencyFormat(double value) {
 		//按系统预设的货币格式输出，这里是人民币
 		NumberFormat nf = NumberFormat.getCurrencyInstance();
