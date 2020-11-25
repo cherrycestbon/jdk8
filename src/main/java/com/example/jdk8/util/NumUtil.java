@@ -39,7 +39,7 @@ public class NumUtil {
 	 * @author fengshuonan
 	 */
 	public static String keepZero(double value) {
-		DecimalFormat df = new DecimalFormat("#0.00");
+		DecimalFormat df = new DecimalFormat("#.00");
 		return df.format(value);
 	}
 

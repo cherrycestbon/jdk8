@@ -1,7 +1,9 @@
 package com.example.jdk8;
 
+import com.example.jdk8.util.ChineseNumToArabicNumUtil;
 import com.example.jdk8.util.MathUtil;
 import com.example.jdk8.util.NumUtil;
+import com.example.jdk8.util.StringUtil;
 import org.junit.jupiter.api.Test;
 
 import java.text.DecimalFormat;
@@ -30,5 +32,22 @@ public class FormatTest {
 
         String s3 = NumUtil.keep(0.23);
         System.out.println("-----:"+s3);
+
+        Boolean winOs = StringUtil.isWinOs();
+        System.out.println(winOs);
+
+        String tempPath = StringUtil.getTempPath();
+        System.out.println(tempPath);
+
+        Double i = 789.987d;
+        int m = i.intValue();
+        System.out.println(m);
+
+//        String n = null;
+//        boolean empty = n.isEmpty();//包NullPointerException
+//        System.out.println(empty);
+
+        String s1 = ChineseNumToArabicNumUtil.arabicNumToChineseNum(156);
+        System.out.println(s1);
     }
 }
