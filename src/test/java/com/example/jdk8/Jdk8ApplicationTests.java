@@ -86,4 +86,16 @@ class Jdk8ApplicationTests {
         }
     }
 
+    @Test
+    void contextLoads3() {
+        int[] ints = {1, 2, 3};
+        int[] ints1 = new int[3];
+        ints1[0] = 1;
+        ints1[1] = 2;
+        ints1[2] = 3;
+        Integer[] ints2 = new Integer[3];
+        List<int[]> ints3 = Arrays.asList(ints1);
+        ints3.forEach(item -> System.out.println(item));
+    }
+
 }
