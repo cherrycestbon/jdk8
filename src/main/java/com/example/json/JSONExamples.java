@@ -13,7 +13,33 @@ import java.util.Iterator;
 
 import static java.lang.System.out;
 
+/**
+ * Persons.json
+ * {
+ *    "persons": {
+ *       "groupname": "school",
+ *       "person":
+ *          [
+ *             {"firstname":"Smith",
+ *               "lastname":"Peter",
+ *               "phone":8475552222,
+ *               "address":["100 Main Street","Corpus","Oklahoma"] },
+ *            {"firstname":"King",
+ *               "lastname":"Sarah",
+ *               "phone":8475551111,
+ *               "address":["200 Main Street","Corpus","Oklahoma"] },
+ *            {"firstname":"Frost",
+ *               "lastname":"Nathan",
+ *               "phone":8475553333,
+ *               "address":["300 Main Street","Corpus","Oklahoma"] }
+ *          ]
+ *    }
+ * }
+ * @author lenovo
+ */
 public class JSONExamples {
+
+    private static final String persons = "{\"persons\":{\"groupname\":\"school\",\"person\":[{\"firstname\":\"Smith\",\"lastname\":\"Peter\",\"phone\":8475552222,\"address\":[\"100 Main Street\",\"Corpus\",\"Oklahoma\"]},{\"firstname\":\"King\",\"lastname\":\"Sarah\",\"phone\":8475551111,\"address\":[\"200 Main Street\",\"Corpus\",\"Oklahoma\"]},{\"firstname\":\"Frost\",\"lastname\":\"Nathan\",\"phone\":8475553333,\"address\":[\"300 Main Street\",\"Corpus\",\"Oklahoma\"]}]}}";
     public JSONExamples() {
 //        parsePerson();
 //        parsePersons("Persons.json");
@@ -28,7 +54,8 @@ public class JSONExamples {
         try {
             ObjectMapper mapper = new ObjectMapper();
             // use the ObjectMapper to read the json string and create a tree
-            JsonNode node = mapper.readTree(new File("Persons.json"));
+            //JsonNode node = mapper.readTree(new File("Persons.json"));
+            JsonNode node = mapper.readTree(persons);
             Iterator<String> fieldNames = node.fieldNames();
             while (fieldNames.hasNext()) {
                 JsonNode personsNode = node.get("persons");
