@@ -1,8 +1,9 @@
 package com.example.jdk8;
 
-import org.springframework.util.StringUtils;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class SetTest {
@@ -20,6 +21,13 @@ public class SetTest {
         List<String> result = new ArrayList<>(set);
         String collect = result.stream().collect(Collectors.joining(","));
         System.out.println(collect);
+
+        String[] strArr = new String[]{"a","b","c"};
+        List<String> collect1 = Arrays.stream(strArr).collect(Collectors.toList());
+        ArrayList<String> collect2 = Arrays.stream(strArr).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<String> collect3 = Arrays.stream(strArr).collect(Collectors.toCollection(() -> new ArrayList<>()));
+        System.out.println(collect1);
+        System.out.println(collect2);
 
     }
 }
