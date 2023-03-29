@@ -31,5 +31,13 @@ public class StringTest {
         for (String s : split) {
             System.out.println(s);
         }
+
+        String separator = "\\deptSeal\\23a4c83ca37f47dd95cba7ec2af95cea.png";
+        String substring = separator.substring(1);
+        System.out.println("substring==" + substring);
+
+        String separator2 = "/deptSeal/23a4c83ca37f47dd95cba7ec2af95cea.png";
+        String substring2 = separator2.substring(1);
+        System.out.println("substring2==" + substring2);
     }
 }
