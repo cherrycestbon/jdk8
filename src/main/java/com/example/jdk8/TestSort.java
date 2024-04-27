@@ -1,5 +1,7 @@
 package com.example.jdk8;
 
+import com.example.jdk8.sort.Dogs;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,5 +53,15 @@ public class TestSort {
         for (Node node:list) {
             System.out.println(node.toString());
         }
+
+        ArrayList<Dogs> dogs = new ArrayList<Dogs>();
+        dogs.add(new Dogs("Zoey", 8));
+        dogs.add(new Dogs("Roxie", 10));
+        dogs.add(new Dogs("Kylie", 7));
+        dogs.add(new Dogs("Shorty", 14));
+        dogs.add(new Dogs("Ginger", 7));
+        dogs.add(new Dogs("Penny", 7));
+        dogs.sort(Comparator.comparing(Dogs::getAge));
+        dogs.forEach(d -> System.out.println(d.getAge()));
     }
 }
