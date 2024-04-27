@@ -1,11 +1,10 @@
 package com.example.jdk8;
 
-import org.springframework.util.StringUtils;
-
-import java.util.*;
-import java.util.function.BinaryOperator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SetTest {
     public static void main(String[] args) {
@@ -22,18 +21,13 @@ public class SetTest {
         List<String> result = new ArrayList<>(set);
         String collect = result.stream().collect(Collectors.joining(","));
         System.out.println(collect);
-        List<String> list = new ArrayList<>();
-        Set<String> collect1 = list.stream().collect(Collectors.toCollection(HashSet::new));
-        Optional<String> collect2 = list.stream().collect(Collectors.minBy(Comparator.comparing(String::toLowerCase)));
-        StringJoiner stringJoiner = new StringJoiner(",");
-        stringJoiner.add("1");
-        stringJoiner.add("2");
 
-        System.out.println(stringJoiner);
+        String[] strArr = new String[]{"a","b","c"};
+        List<String> collect1 = Arrays.stream(strArr).collect(Collectors.toList());
+        ArrayList<String> collect2 = Arrays.stream(strArr).collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<String> collect3 = Arrays.stream(strArr).collect(Collectors.toCollection(() -> new ArrayList<>()));
+        System.out.println(collect1);
+        System.out.println(collect2);
 
-        BinaryOperator<Integer> b = (x, y) -> x+y;
-        Optional<Integer> reduce = Stream.of(1, 2,3).reduce(b);
-        Integer integer = reduce.get();
-        System.out.println("result:" + integer);
     }
 }
